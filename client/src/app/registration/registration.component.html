@@ -1,0 +1,34 @@
+<form [formGroup]="itemForm" (ngSubmit)="onRegister()">
+<h2><b>MEDICAL EQUIPMENT & TRACKING SYSTEM</b></h2>
+<p>Please enter your details here</p>
+
+
+<label>Username</label>
+<input type="text" placeholder="Username" formControlName="username">
+<div *ngIf="itemForm.get('username')?.invalid && (itemForm.get('username')?.touched || itemForm.get('username')?.dirty)">
+    <p *ngIf="itemForm.get('username')?.hasError('required')">Please Enter UserName.</p>
+</div>
+
+<label>Email address</label>
+<input type="text" placeholder="name@example.com" formControlName="email">
+<div *ngIf="itemForm.get('email')?.invalid && (itemForm.get('email')?.touched || itemForm.get('email')?.dirty)">
+    <p *ngIf="itemForm.get('email')?.hasError('required')">Please Enter email.</p>
+</div>
+
+<label>Password</label>
+<input type="password" placeholder="*******" formControlName="password">
+<div *ngIf="itemForm.get('password')?.invalid && (itemForm.get('password')?.touched || itemForm.get('password')?.dirty)">
+    <p *ngIf="itemForm.get('password')?.hasError('required')">Please Enter password.</p>
+</div>
+
+<label>Role</label>
+<select formControlName="role" placeholder="Choose Role">
+    <option *ngFor="let option of registrationrole">{{option}}</option>
+</select>
+
+<button type="Submit">Submit</button>
+
+<button [routerlink]="['/login']">Go to Login</button>
+
+
+</form>
