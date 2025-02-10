@@ -25,6 +25,8 @@ export class RegistrationComponent  implements OnInit{
     })
   }
 
+
+  // On register
   onRegister(){
     if(this.itemForm.valid){
       this.service.addEquipment(this.itemForm.value).subscribe(()=>{
